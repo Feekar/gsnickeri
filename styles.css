@@ -293,6 +293,7 @@ nav.active .hamburger .hamburger-inner:after {
   cursor: pointer;
   border: none;
   background: none;
+  font-family: inherit;
 }
 
 @media screen and (max-width: 1145px) {
