@@ -260,8 +260,13 @@ nav.active .hamburger .hamburger-inner:after {
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   z-index: 5;
-  display: none;
   height: 100vh;
+  transition: 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #image-modal > div {
@@ -269,9 +274,8 @@ nav.active .hamburger .hamburger-inner:after {
 }
 
 #image-modal.open {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  opacity: 1;
+  pointer-events: all;
 }
 
 #image-modal img {
@@ -285,15 +289,48 @@ nav.active .hamburger .hamburger-inner:after {
 
 #image-modal button.close {
   color: #eee;
-  position: absolute;
-  top: -2.8rem;
-  right: 0;
-  padding: 0.8rem;
-  font-size: 1.2rem;
+  position: fixed;
   cursor: pointer;
   border: none;
   background: none;
   font-family: inherit;
+  top: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background: url("content/icons/x.svg");
+  background-size: cover;
+  filter: drop-shadow(1px 1px 3px #333);
+}
+
+#image-modal .image-navigation[data-direction="left"] {
+  background: url("content/icons/chevron-left.svg");
+  left: 2rem;
+  background-size: cover;
+}
+
+#image-modal .image-navigation[data-direction="left"]:hover {
+  left: 1.5rem;
+}
+
+#image-modal .image-navigation[data-direction="right"] {
+  background: url("content/icons/chevron-right.svg");
+  right: 2rem;
+  background-size: cover;
+}
+
+#image-modal .image-navigation[data-direction="right"]:hover {
+  right: 1.5rem;
+}
+
+#image-modal .image-navigation {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.15s;
 }
 
 @media screen and (max-width: 1145px) {
@@ -374,5 +411,9 @@ nav.active .hamburger .hamburger-inner:after {
 
   .hamburger {
     margin-right: 0;
+  }
+
+  .image-navigation {
+    display: none;
   }
 }
