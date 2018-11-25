@@ -39,21 +39,12 @@ const imagesCount = 10;
     imageModalContainerElement.classList.remove("open");
   });
 
+  imageModalElement.addEventListener("click", navigateModalImages("next"));
+
   for (const button of imageNavigationButtons) {
-    button.addEventListener("click", function(event) {
+    button.addEventListener("click", function() {
       const direction = button.dataset.direction;
-      let newImageNumber = parseInt(imageModalElement.dataset.imageNumber);
-
-      direction === "right" ? newImageNumber++ : newImageNumber--;
-
-      if (newImageNumber > imagesCount) {
-        newImageNumber = 1;
-      } else if (newImageNumber < 1) {
-        newImageNumber = imagesCount;
-      }
-
-      imageModalElement.src = `content/images/${newImageNumber}.jpg`;
-      imageModalElement.dataset.imageNumber = newImageNumber;
+      navigateModalImages(direction);
     });
   }
 
@@ -67,3 +58,16 @@ const imagesCount = 10;
     imageModalContainerElement.classList.remove("open");
   });
 })();
+
+function navigateModalImages(direction) {
+  let newImageNumber = parseInt(imageModalElement.dataset.imageNumber);
+  direction === "next" ? newImageNumber++ : newImageNumber--;
+  if (newImageNumber > imagesCount) {
+    newImageNumber = 1;
+  } else if (newImageNumber < 1) {
+    newImageNumber = imagesCount;
+  }
+
+  imageModalElement.src = `content/images/${newImageNumber}.jpg`;
+  imageModalElement.dataset.imageNumber = newImageNumber;
+}

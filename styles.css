@@ -303,23 +303,23 @@ nav.active .hamburger .hamburger-inner:after {
   filter: drop-shadow(1px 1px 3px #333);
 }
 
-#image-modal .image-navigation[data-direction="left"] {
+#image-modal .image-navigation[data-direction="previous"] {
   background: url("content/icons/chevron-left.svg");
   left: 2rem;
   background-size: cover;
 }
 
-#image-modal .image-navigation[data-direction="left"]:hover {
+#image-modal .image-navigation[data-direction="previous"]:hover {
   left: 1.5rem;
 }
 
-#image-modal .image-navigation[data-direction="right"] {
+#image-modal .image-navigation[data-direction="next"] {
   background: url("content/icons/chevron-right.svg");
   right: 2rem;
   background-size: cover;
 }
 
-#image-modal .image-navigation[data-direction="right"]:hover {
+#image-modal .image-navigation[data-direction="next"]:hover {
   right: 1.5rem;
 }
 
