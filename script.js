@@ -39,7 +39,9 @@ const imagesCount = 10;
     imageModalContainerElement.classList.remove("open");
   });
 
-  imageModalElement.addEventListener("click", navigateModalImages("next"));
+  imageModalElement.addEventListener("click", () =>
+    navigateModalImages("next")
+  );
 
   for (const button of imageNavigationButtons) {
     button.addEventListener("click", function() {
