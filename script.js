@@ -2,26 +2,27 @@
 
 import furnitureData from "./furniture_data.js";
 
-console.log(furnitureData);
-
 const hamburgerElement = document.querySelector(".hamburger");
 const navElement = document.querySelector("nav");
 const imageContainerElement = document.getElementById("furniture");
 const imageModalContainerElement = document.getElementById("image-modal");
 const imageModalElement = document.querySelector("#image-modal img");
 const closeModalButtonElement = document.querySelector("#image-modal .close");
+const detailImagesContainerElement = document.querySelector(
+  "#detail-images-container"
+);
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
 
 (function createImageElements() {
   for (let furnitureGroup of furnitureData) {
-    console.log(furnitureGroup);
-    for (let image of furnitureGroup.images) {
-      let imgElement = document.createElement("img");
-      imgElement.src = `content/images/${furnitureGroup.id}/${image}`;
-      imageContainerElement.appendChild(imgElement);
-    }
+    let imgElement = document.createElement("img");
+    imgElement.src = `content/images/${furnitureGroup.id}/${
+      furnitureGroup.images[0]
+    }`;
+    imgElement.dataset.groupId = furnitureGroup.id;
+    imageContainerElement.appendChild(imgElement);
   }
 
   // for (var i = 1; i <= imagesCount; i++) {
@@ -37,18 +38,14 @@ const imageNavigationButtons = document.getElementsByClassName(
     navElement.classList.toggle("active");
   });
 
-  // imageContainerElement.addEventListener("click", function(event) {
-  //   if (event.target.tagName === "IMG") {
-  //     imageModalElement.src = event.target.src;
-  //     imageModalElement.dataset.imageNumber = event.target.dataset.imageNumber;
-  //     imageModalContainerElement.classList.add("open");
-  //   }
-  //   event.stopPropagation();
-  // });
+  imageContainerElement.addEventListener("click", function(event) {
+    openClickedImage(event);
+    addDetailImages(event);
+  });
 
-  // closeModalButtonElement.addEventListener("click", function() {
-  //   imageModalContainerElement.classList.remove("open");
-  // });
+  closeModalButtonElement.addEventListener("click", function() {
+    imageModalContainerElement.classList.remove("open");
+  });
 
   // imageModalElement.addEventListener("click", () =>
   //   navigateModalImages("next")
@@ -84,3 +81,32 @@ const imageNavigationButtons = document.getElementsByClassName(
 //   imageModalElement.src = `content/images/${newImageNumber}.jpg`;
 //   imageModalElement.dataset.imageNumber = newImageNumber;
 // }
+
+function openClickedImage(event) {
+  if (event.target.tagName === "IMG") {
+    imageModalElement.src = event.target.src;
+    imageModalElement.dataset.imageNumber = event.target.dataset.imageNumber;
+    imageModalContainerElement.classList.add("open");
+  }
+  event.stopPropagation();
+}
+
+function addDetailImages(event) {
+  detailImagesContainerElement;
+  const groupId = event.srcElement.dataset.groupId;
+
+  const chosenGroup = furnitureData.find(furnitureGroup => {
+    return furnitureGroup.id === groupId;
+  });
+  detailImagesContainerElement.innerHTML = "";
+
+  for (let image of chosenGroup.images) {
+    let imgElement = document.createElement("img");
+    imgElement.src = `content/images/${chosenGroup.id}/${image}`;
+    detailImagesContainerElement.appendChild(imgElement);
+  }
+
+  // imgElement.src = `content/images/${furnitureGroup.id}/${
+  //   furnitureGroup.images[0]
+  // }`;
+}
