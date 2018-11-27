@@ -277,7 +277,8 @@ nav.active .hamburger .hamburger-inner:after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -345,10 +346,10 @@ nav.active .hamburger .hamburger-inner:after {
 #image-modal section#detail-images-container {
   display: flex;
   align-items: flex-end;
-  height: 25%;
-  max-width: 100vw;
+  height: 100%;
   justify-content: center;
-  width: 100vw;
+  width: auto;
+  margin: 0 auto;
 }
 
 #image-modal section#detail-images-container > img {
@@ -360,6 +361,15 @@ nav.active .hamburger .hamburger-inner:after {
 
 #image-modal section#detail-images-container > img:last-of-type {
   margin-right: 0;
+}
+
+#image-modal #scroll-box {
+  display: flex;
+  align-items: flex-end;
+  height: 25%;
+  width: 100vw;
+  overflow: auto;
+  padding-bottom: 1.5rem;
 }
 
 @media screen and (max-width: 1145px) {
