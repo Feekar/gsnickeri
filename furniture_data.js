@@ -1,6 +1,7 @@
 const imageModalElement = document.querySelector("#image-modal img");
 const imageModalContainerElement = document.getElementById("image-modal");
 const progressContainerElement = document.getElementById("progress");
+let currentImageShownNum = 1;
 
 class FurnitureGroup {
   constructor(id, name, price, images) {
@@ -25,6 +26,26 @@ class FurnitureGroup {
       progressDot.className = "progress-dot";
       progressContainerElement.append(progressDot);
     }
+
+    progressContainerElement.children[0].classList.add("selected");
+  }
+
+  // prettier-ignore
+  navigateImages(direction) {
+    direction === "next" ? currentImageShownNum++ : currentImageShownNum--;
+
+    if (currentImageShownNum > this.images.length) {
+      currentImageShownNum = 1;
+    } else if (currentImageShownNum < 1) {
+      currentImageShownNum = this.images.length;
+    }
+    imageModalElement.src = `content/images/${this.id}/${currentImageShownNum}.jpg`;
+
+    Array.from(progressContainerElement.children).map((progressDot) => {
+      progressDot.classList.remove("selected");
+    });
+
+    progressContainerElement.children[currentImageShownNum-1].classList.add("selected");
   }
 }
 

@@ -12,6 +12,8 @@ const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
 
+let chosenFurnitureGroup;
+
 (function initialize() {
   initImages();
   addEventListeners();
@@ -54,35 +56,19 @@ function addEventListeners() {
   for (const button of imageNavigationButtons) {
     button.addEventListener("click", function() {
       const direction = button.dataset.direction;
-      navigateModalImages(direction);
+      chosenFurnitureGroup.navigateImages(direction);
     });
   }
 }
-// imageModalElement.addEventListener("click", () =>
-//   navigateModalImages("next")
-// );
-
-// function navigateModalImages(direction) {
-//   let newImageNumber = parseInt(imageModalElement.dataset.imageNumber);
-//   direction === "next" ? newImageNumber++ : newImageNumber--;
-//   if (newImageNumber > imagesCount) {
-//     newImageNumber = 1;
-//   } else if (newImageNumber < 1) {
-//     newImageNumber = imagesCount;
-//   }
-
-//   imageModalElement.src = `content/images/${newImageNumber}.jpg`;
-//   imageModalElement.dataset.imageNumber = newImageNumber;
-// }
 
 function openClickedImage(event) {
   if (event.target.tagName !== "IMG") {
     return;
   }
   const furnitureGroupId = event.target.dataset.furnitureGroupId;
-  const clickedFurnitureGroup = getFurnitureGroupById(furnitureGroupId);
+  chosenFurnitureGroup = getFurnitureGroupById(furnitureGroupId);
 
-  clickedFurnitureGroup.open();
+  chosenFurnitureGroup.open();
 
   event.stopPropagation();
 }
