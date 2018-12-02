@@ -5,9 +5,8 @@ const navElement = document.querySelector("nav");
 const imageContainerElement = document.getElementById("furniture");
 const imageModalContainerElement = document.getElementById("image-modal");
 const closeModalButtonElement = document.querySelector("#image-modal .close");
-const detailImagesContainerElement = document.querySelector(
-  "#detail-images-container"
-);
+const imageModalElement = document.querySelector("#image-modal img");
+
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
@@ -37,6 +36,10 @@ function addEventListeners() {
 
   imageContainerElement.addEventListener("click", event => {
     openClickedImage(event);
+  });
+
+  imageModalElement.addEventListener("click", () => {
+    chosenFurnitureGroup.navigateImages("next");
   });
 
   closeModalButtonElement.addEventListener("click", function() {
