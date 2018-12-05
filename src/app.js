@@ -1,6 +1,5 @@
 "use strict";
 import furnitureData from "./furniture.js";
-import SwipeListener from "swipe-listener";
 
 const hamburgerElement = document.querySelector(".hamburger");
 const navElement = document.querySelector("nav");
@@ -13,8 +12,6 @@ const bodyElement = document.querySelector("body");
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
-
-let listener = SwipeListener(imageModalElement);
 
 let chosenFurnitureGroup;
 
@@ -54,15 +51,16 @@ function addEventListeners() {
     navElement.classList.toggle("active")
   );
 
-  imageModalElement.addEventListener("swipe", imageSwipe);
-
   imageContainerElement.addEventListener("click", event => {
     if (event.target.tagName !== "IMG") {
       return;
     }
     const furnitureGroupId = event.target.dataset.furnitureGroupId;
-
     openImage(furnitureGroupId);
+  });
+
+  imageModalElement.addEventListener("click", () => {
+    chosenFurnitureGroup.navigateImages("next");
   });
 
   closeModalButtonElement.addEventListener("click", function() {
@@ -88,7 +86,7 @@ function addOpenImageButtonsEventListeners() {
 }
 
 function addImageNavigationEventListeners() {
-  for (const button of imageNavigationButtons) {
+  for (const button of Array.from(imageNavigationButtons)) {
     button.addEventListener("click", function(event) {
       const direction = button.dataset.direction;
       chosenFurnitureGroup.navigateImages(direction);
@@ -106,16 +104,6 @@ function outsideImageClick(event) {
   }
   imageModalContainerElement.classList.remove("open");
   bodyElement.classList.remove("modal-open");
-}
-
-function imageSwipe(event) {
-  const directions = event.detail.directions;
-
-  if (directions.left) {
-    chosenFurnitureGroup.navigateImages("next");
-  } else if (directions.right) {
-    chosenFurnitureGroup.navigateImages("previous");
-  }
 }
 
 function openImage(furnitureGroupId) {
