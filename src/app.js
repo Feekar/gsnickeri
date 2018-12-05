@@ -1,5 +1,6 @@
 "use strict";
 import furnitureData from "./furniture.js";
+import SwipeListener from "swipe-listener";
 
 const hamburgerElement = document.querySelector(".hamburger");
 const navElement = document.querySelector("nav");
@@ -11,6 +12,7 @@ const imageModalElement = document.querySelector("#image-modal img");
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
+let listener = SwipeListener(imageModalElement, { minHorizontal: 100 });
 
 let chosenFurnitureGroup;
 
@@ -35,33 +37,46 @@ function addEventListeners() {
     navElement.classList.toggle("active")
   );
 
+  imageModalElement.addEventListener("swipe", imageSwipe);
+
   imageContainerElement.addEventListener("click", event => {
     openClickedImage(event);
-  });
-
-  imageModalElement.addEventListener("click", () => {
-    chosenFurnitureGroup.navigateImages("next");
   });
 
   closeModalButtonElement.addEventListener("click", function() {
     imageModalContainerElement.classList.remove("open");
   });
 
-  window.addEventListener("click", function(event) {
-    if (
-      event.srcElement.tagName === "IMG" ||
-      event.srcElement.classList.contains("image-navigation")
-    ) {
-      return;
-    }
-    imageModalContainerElement.classList.remove("open");
-  });
+  window.addEventListener("click", outsideImageClick);
 
+  addImageNavigationEventListeners();
+}
+
+function addImageNavigationEventListeners() {
   for (const button of imageNavigationButtons) {
     button.addEventListener("click", function() {
       const direction = button.dataset.direction;
       chosenFurnitureGroup.navigateImages(direction);
     });
+  }
+}
+
+function outsideImageClick(event) {
+  if (
+    event.srcElement.tagName === "IMG" ||
+    event.srcElement.classList.contains("image-navigation")
+  ) {
+    return;
+  }
+  imageModalContainerElement.classList.remove("open");
+}
+
+function imageSwipe(event) {
+  const directions = event.detail.directions;
+  if (directions.left) {
+    chosenFurnitureGroup.navigateImages("next");
+  } else if (directions.right) {
+    chosenFurnitureGroup.navigateImages("previous");
   }
 }
 
