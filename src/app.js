@@ -12,7 +12,8 @@ const imageModalElement = document.querySelector("#image-modal img");
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
 );
-let listener = SwipeListener(imageModalElement, { minHorizontal: 100 });
+
+let listener = SwipeListener(imageModalElement);
 
 let chosenFurnitureGroup;
 
