@@ -111,6 +111,7 @@ section#furniture .furniture-details {
 
 section#furniture .furniture-details span {
   font-size: 0.8rem;
+  line-height: 0.8rem;
   margin: 0 0.3rem;
 }
 
