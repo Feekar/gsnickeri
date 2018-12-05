@@ -107,6 +107,7 @@ function outsideImageClick(event) {
 
 function imageSwipe(event) {
   const directions = event.detail.directions;
+
   if (directions.left) {
     chosenFurnitureGroup.navigateImages("next");
   } else if (directions.right) {

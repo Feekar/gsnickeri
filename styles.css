@@ -494,7 +494,9 @@ nav.active .hamburger .hamburger-inner:after {
     margin-right: 0;
   }
 
-  .image-navigation {
-    display: none;
+  #image-modal .image-navigation {
+    bottom: 1rem;
+    width: 3rem;
+    height: 3rem;
   }
 }
