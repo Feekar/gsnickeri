@@ -24,13 +24,28 @@ let chosenFurnitureGroup;
 
 function initImages() {
   for (let furnitureGroup of furnitureData) {
-    let imgElement = document.createElement("img");
-    imgElement.src = `content/images/${furnitureGroup.id}/${
-      furnitureGroup.images[0]
-    }`;
-    imgElement.dataset.furnitureGroupId = furnitureGroup.id;
-    imageContainerElement.appendChild(imgElement);
+    let imgWrapElement = document.createElement("div");
+    imgWrapElement.classList.add("furniture-img-wrap");
+    // prettier-ignore
+    imgWrapElement.innerHTML = `
+    <div class="name">${furnitureGroup.name}</div>
+    <img src="content/images/${furnitureGroup.id}/${furnitureGroup.images[0]}" 
+          data-furniture-group-id="${furnitureGroup.id}"/>
+    <div class="furniture-details">
+      <div>
+        ${furnitureGroup.price} 
+        <span>SEK</span> 
+      </div>
+        <button class="open-furniture-group" data-furniture-group-id="${furnitureGroup.id}">
+          <span>${furnitureGroup.images.length} bilder</span>
+          <img src="content/icons/arrow-right-circle.svg"/>
+        </button> 
+    </div>
+    `;
+
+    imageContainerElement.appendChild(imgWrapElement);
   }
+  addOpenImageButtonsEventListeners();
 }
 
 function addEventListeners() {
@@ -41,7 +56,12 @@ function addEventListeners() {
   imageModalElement.addEventListener("swipe", imageSwipe);
 
   imageContainerElement.addEventListener("click", event => {
-    openClickedImage(event);
+    if (event.target.tagName !== "IMG") {
+      return;
+    }
+    const furnitureGroupId = event.target.dataset.furnitureGroupId;
+
+    openImage(furnitureGroupId);
   });
 
   closeModalButtonElement.addEventListener("click", function() {
@@ -53,11 +73,24 @@ function addEventListeners() {
   addImageNavigationEventListeners();
 }
 
+function addOpenImageButtonsEventListeners() {
+  const openImageButtonElements = document.querySelectorAll(
+    ".furniture-details button"
+  );
+
+  for (const button of openImageButtonElements) {
+    button.addEventListener("click", function(event) {
+      openImage(button.dataset.furnitureGroupId);
+    });
+  }
+}
+
 function addImageNavigationEventListeners() {
   for (const button of imageNavigationButtons) {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function(event) {
       const direction = button.dataset.direction;
       chosenFurnitureGroup.navigateImages(direction);
+      event.stopPropagation();
     });
   }
 }
@@ -81,11 +114,7 @@ function imageSwipe(event) {
   }
 }
 
-function openClickedImage(event) {
-  if (event.target.tagName !== "IMG") {
-    return;
-  }
-  const furnitureGroupId = event.target.dataset.furnitureGroupId;
+function openImage(furnitureGroupId) {
   chosenFurnitureGroup = getFurnitureGroupById(furnitureGroupId);
 
   chosenFurnitureGroup.open();
@@ -95,6 +124,6 @@ function openClickedImage(event) {
 
 function getFurnitureGroupById(furnitureGroupId) {
   return furnitureData.find(furnitureGroup => {
-    return furnitureGroup.id === event.target.dataset.furnitureGroupId;
+    return furnitureGroup.id === furnitureGroupId;
   });
 }

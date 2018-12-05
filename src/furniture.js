@@ -62,7 +62,7 @@ const furnitureData = [
   ),
   new FurnitureGroup(
     "group2",
-    "Väggbord",
+    "Månhylla",
     3800,
     ["1.jpg", "2.jpg"]
     )  
