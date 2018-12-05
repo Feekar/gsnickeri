@@ -30,7 +30,6 @@ class FurnitureGroup {
     progressContainerElement.children[0].classList.add("selected");
   }
 
-  // prettier-ignore
   navigateImages(direction) {
     direction === "next" ? currentImageShownNum++ : currentImageShownNum--;
 
@@ -39,13 +38,17 @@ class FurnitureGroup {
     } else if (currentImageShownNum < 1) {
       currentImageShownNum = this.images.length;
     }
-    imageModalElement.src = `content/images/${this.id}/${currentImageShownNum}.jpg`;
+    imageModalElement.src = `content/images/${
+      this.id
+    }/${currentImageShownNum}.jpg`;
 
-    Array.from(progressContainerElement.children).map((progressDot) => {
+    Array.from(progressContainerElement.children).map(progressDot => {
       progressDot.classList.remove("selected");
     });
 
-    progressContainerElement.children[currentImageShownNum-1].classList.add("selected");
+    progressContainerElement.children[currentImageShownNum - 1].classList.add(
+      "selected"
+    );
   }
 }
 

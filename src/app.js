@@ -1,5 +1,6 @@
 "use strict";
-import furnitureData from "./furniture_data.js";
+import furnitureData from "./furniture.js";
+
 const hamburgerElement = document.querySelector(".hamburger");
 const navElement = document.querySelector("nav");
 const imageContainerElement = document.getElementById("furniture");
