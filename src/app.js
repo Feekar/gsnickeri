@@ -8,6 +8,7 @@ const imageContainerElement = document.getElementById("furniture");
 const imageModalContainerElement = document.getElementById("image-modal");
 const closeModalButtonElement = document.querySelector("#image-modal .close");
 const imageModalElement = document.querySelector("#image-modal img");
+const bodyElement = document.querySelector("body");
 
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
@@ -66,6 +67,7 @@ function addEventListeners() {
 
   closeModalButtonElement.addEventListener("click", function() {
     imageModalContainerElement.classList.remove("open");
+    bodyElement.classList.remove("modal-open");
   });
 
   window.addEventListener("click", outsideImageClick);
@@ -103,6 +105,7 @@ function outsideImageClick(event) {
     return;
   }
   imageModalContainerElement.classList.remove("open");
+  bodyElement.classList.remove("modal-open");
 }
 
 function imageSwipe(event) {
@@ -119,6 +122,7 @@ function openImage(furnitureGroupId) {
   chosenFurnitureGroup = getFurnitureGroupById(furnitureGroupId);
 
   chosenFurnitureGroup.open();
+  bodyElement.classList.add("modal-open");
 
   event.stopPropagation();
 }

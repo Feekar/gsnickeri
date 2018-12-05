@@ -23,6 +23,11 @@ body {
   margin: 0;
 }
 
+body.modal-open {
+  overflow: hidden;
+  padding-right: 18px;
+}
+
 h3,
 h4 {
   color: var(--black-color);
