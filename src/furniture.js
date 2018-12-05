@@ -1,7 +1,7 @@
 const imageModalElement = document.querySelector("#image-modal img");
 const imageModalContainerElement = document.getElementById("image-modal");
 const progressContainerElement = document.getElementById("progress");
-let currentImageShownNum = 1;
+let currentImageShownNum;
 
 class FurnitureGroup {
   constructor(id, name, price, images) {
@@ -16,6 +16,7 @@ class FurnitureGroup {
     // imageModalElement.dataset.imageNumber = event.target.dataset.imageNumber;
     imageModalContainerElement.classList.add("open");
     this.addProgressDots();
+    currentImageShownNum = 1;
   }
 
   addProgressDots() {
@@ -38,6 +39,9 @@ class FurnitureGroup {
     } else if (currentImageShownNum < 1) {
       currentImageShownNum = this.images.length;
     }
+
+    console.log(currentImageShownNum);
+
     imageModalElement.src = `content/images/${
       this.id
     }/${currentImageShownNum}.jpg`;
