@@ -69,7 +69,43 @@ const furnitureData = [
     "Månhylla",
     3800,
     ["1.jpg", "2.jpg"]
-    )  
+  ),
+  new FurnitureGroup(
+    "group3",
+    "Charkbräda",
+    2000,
+    ["1.jpg", "2.jpg"]
+  ),
+  new FurnitureGroup(
+    "group4",
+    "Pallar",
+    4500,
+    ["1.jpg"]
+  ) ,
+  new FurnitureGroup(
+    "group5",
+    "Sidbord m. betongskiva",
+    7000,
+    ["1.jpg", "2.jpg"]
+  ) ,
+  new FurnitureGroup(
+    "group6",
+    "Vägghylla i fyra delar",
+    4000,
+    ["1.jpg"]
+  ) ,
+  new FurnitureGroup(
+    "group7",
+    "Sidobord svart",
+    4500,
+    ["1.jpg", "2.jpg"]
+  ),
+  new FurnitureGroup(
+    "group8",
+    "Utebänk",
+    3300,
+    ["1.jpg", "2.jpg"]
+  )      
 ];
 
 export default furnitureData;
