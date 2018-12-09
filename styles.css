@@ -23,10 +23,6 @@ body {
   margin: 0;
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
 h3,
 h4 {
   color: var(--black-color);
@@ -474,6 +470,10 @@ nav.active .hamburger .hamburger-inner:after {
   nav.active {
     position: sticky;
     top: 0;
+  }
+
+  body.modal-open {
+    overflow: hidden;
   }
 }
 
