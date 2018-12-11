@@ -8,6 +8,7 @@ const imageModalContainerElement = document.getElementById("image-modal");
 const closeModalButtonElement = document.querySelector("#image-modal .close");
 const imageModalElement = document.querySelector("#image-modal img");
 const bodyElement = document.querySelector("body");
+const progressContainerElement = document.getElementById("progress");
 
 const imageNavigationButtons = document.getElementsByClassName(
   "image-navigation"
@@ -111,6 +112,7 @@ function openImage(furnitureGroupId) {
 
   chosenFurnitureGroup.open();
   bodyElement.classList.add("modal-open");
+  addProgressDots(chosenFurnitureGroup.images.length);
 
   event.stopPropagation();
 }
@@ -119,4 +121,16 @@ function getFurnitureGroupById(furnitureGroupId) {
   return furnitureData.find(furnitureGroup => {
     return furnitureGroup.id === furnitureGroupId;
   });
+}
+
+function addProgressDots(numberOfImages) {
+  progressContainerElement.innerHTML = "";
+
+  for (let i = 0; i < numberOfImages; i++) {
+    let progressDot = document.createElement("div");
+    progressDot.className = "progress-dot";
+    progressContainerElement.append(progressDot);
+  }
+
+  progressContainerElement.children[0].classList.add("selected");
 }

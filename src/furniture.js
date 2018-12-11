@@ -2,6 +2,7 @@ const imageModalElement = document.querySelector("#image-modal img");
 const imageModalContainerElement = document.getElementById("image-modal");
 const progressContainerElement = document.getElementById("progress");
 let currentImageShownNum;
+const imageBasePath = "content/images/";
 
 class FurnitureGroup {
   constructor(id, name, price, images) {
@@ -9,26 +10,14 @@ class FurnitureGroup {
     this.name = name;
     this.price = price;
     this.images = images;
+    this.hasBeenLoaded = false;
   }
 
   open() {
-    imageModalElement.src = `content/images/${this.id}/${this.images[0]}`;
-    // imageModalElement.dataset.imageNumber = event.target.dataset.imageNumber;
+    imageModalElement.src = `${imageBasePath}${this.id}/${this.images[0]}`;
     imageModalContainerElement.classList.add("open");
-    this.addProgressDots();
+    this.preloadImages();
     currentImageShownNum = 1;
-  }
-
-  addProgressDots() {
-    progressContainerElement.innerHTML = "";
-
-    for (let i = 0; i < this.images.length; i++) {
-      let progressDot = document.createElement("div");
-      progressDot.className = "progress-dot";
-      progressContainerElement.append(progressDot);
-    }
-
-    progressContainerElement.children[0].classList.add("selected");
   }
 
   navigateImages(direction) {
@@ -40,9 +29,7 @@ class FurnitureGroup {
       currentImageShownNum = this.images.length;
     }
 
-    console.log(currentImageShownNum);
-
-    imageModalElement.src = `content/images/${
+    imageModalElement.src = `${imageBasePath}${
       this.id
     }/${currentImageShownNum}.jpg`;
 
@@ -53,6 +40,18 @@ class FurnitureGroup {
     progressContainerElement.children[currentImageShownNum - 1].classList.add(
       "selected"
     );
+  }
+
+  preloadImages() {
+    if (this.hasBeenLoaded) {
+      return;
+    }
+
+    for (let image of this.images) {
+      var imageObject = new Image();
+      imageObject.src = `${imageBasePath}/${this.id}/${image}`;
+    }
+    this.hasBeenLoaded = true;
   }
 }
 
