@@ -49,7 +49,7 @@ class FurnitureGroup {
 
     for (let image of this.images) {
       var imageObject = new Image();
-      imageObject.src = `${imageBasePath}/${this.id}/${image}`;
+      imageObject.src = `${imageBasePath}${this.id}/${image}`;
     }
     this.hasBeenLoaded = true;
   }
