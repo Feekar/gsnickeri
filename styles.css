@@ -78,6 +78,7 @@ section#furniture {
   padding: 0 1.9rem;
   box-sizing: border-box;
   align-items: start;
+  min-height: 100vh;
 }
 
 section#furniture img {
