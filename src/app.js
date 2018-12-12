@@ -1,5 +1,6 @@
 "use strict";
 import furnitureData from "./furniture.js";
+import ScrollReveal from "scrollreveal";
 
 const hamburgerElement = document.querySelector(".hamburger");
 const navElement = document.querySelector("nav");
@@ -19,6 +20,7 @@ let chosenFurnitureGroup;
 (function initialize() {
   initImages();
   addEventListeners();
+  addScrollRevealAnimation();
 })();
 
 function initImages() {
@@ -133,4 +135,14 @@ function addProgressDots(numberOfImages) {
   }
 
   progressContainerElement.children[0].classList.add("selected");
+}
+
+function addScrollRevealAnimation() {
+  let sr = ScrollReveal();
+  sr.reveal(".furniture-img-wrap", {
+    duration: 2200,
+    distance: "2rem",
+    interval: 200
+  });
+  sr.reveal("#introduction", { duration: 1500 });
 }
