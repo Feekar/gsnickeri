@@ -122,10 +122,6 @@ section#furniture .furniture-details > div {
   align-items: center;
 }
 
-section#furniture > div:hover {
-  transform: scale(1.015);
-}
-
 section#furniture .furniture-details button {
   border: none;
   background: none;
