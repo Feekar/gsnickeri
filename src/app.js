@@ -42,6 +42,9 @@ function initImages() {
           <img src="content/icons/arrow-right-circle.svg"/>
         </button> 
     </div>
+    <p class="furniture-description">
+      ${furnitureGroup.description}
+    </p>
     `;
 
     imageContainerElement.appendChild(imgWrapElement);

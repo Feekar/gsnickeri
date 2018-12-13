@@ -5,10 +5,11 @@ let currentImageShownNum;
 const imageBasePath = "content/images/";
 
 class FurnitureGroup {
-  constructor(id, name, price, images) {
+  constructor(id, name, price, description, images) {
     this.id = id;
     this.name = name;
     this.price = price;
+    this.description = description;
     this.images = images;
     this.hasBeenLoaded = false;
   }
@@ -61,48 +62,56 @@ const furnitureData = [
     "group1",
     "Bord & pallar",
     5400,
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
     ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
   ),
   new FurnitureGroup(
     "group2",
     "Månhylla",
     3800,
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group3",
     "Charkbräda",
     2000,
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group4",
     "Pallar",
     4500,
+    "Lorem ipsum dolor sit",
     ["1.jpg"]
   ) ,
   new FurnitureGroup(
     "group5",
     "Sidbord m. betongskiva",
     7000,
+    "Lorem ipsum dolor sit consectetur adipiscing",
     ["1.jpg", "2.jpg"]
   ) ,
   new FurnitureGroup(
     "group6",
     "Vägghylla i fyra delar",
     4000,
+    "Lorem ipsum dolor sit consectetur adipiscing Lorem ipsum dolor sit consectetur adipiscing",
     ["1.jpg"]
   ) ,
   new FurnitureGroup(
     "group7",
     "Sidobord svart",
     4500,
+    "Lorem ipsum dolor sit consectetur adipiscin 30x30",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group8",
     "Utebänk",
     3300,
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
     ["1.jpg", "2.jpg"]
   )      
 ];

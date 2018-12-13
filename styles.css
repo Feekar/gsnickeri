@@ -23,7 +23,9 @@ body {
   margin: 0;
 }
 
+h1,
 h3,
+h2,
 h4 {
   color: var(--black-color);
   font-weight: normal;
@@ -145,13 +147,22 @@ section#furniture .furniture-details button > span {
   font-size: 0.9rem;
 }
 
+section#furniture .furniture-description {
+  font-size: 0.85rem;
+  padding: 0 0 1rem 0.3rem;
+  background: white;
+  margin: 0;
+  line-height: 1.5;
+}
+
 aside#introduction {
   grid-row: 1;
   padding: 1.4rem 1.4rem 4rem 0;
   visibility: hidden;
 }
 
-aside#introduction h3 {
+aside#introduction h4,
+aside#introduction h1 {
   font-size: 2.6rem;
   margin: 0;
   font-family: "Libre Baskerville", serif;
@@ -161,11 +172,20 @@ aside#introduction h3 {
   line-height: 1.4;
 }
 
-aside#introduction .contact-me-btn {
+aside#introduction h4 {
+  font-size: 1.1rem;
+  letter-spacing: 0px;
+  line-height: 1.6;
+  margin-top: 2rem;
+  opacity: 1;
+  font-weight: normal;
+}
+
+aside#introduction .read-more-btn {
   text-decoration: none;
   display: inline-block;
   padding-bottom: 0.3rem;
-  margin: 4.8rem 0.3rem 0 0.3rem;
+  margin: 2.4rem 0.3rem 0 0.3rem;
   cursor: pointer;
   font-weight: 700;
   letter-spacing: 1px;
@@ -176,13 +196,13 @@ aside#introduction .contact-me-btn {
   transition: 0.15s;
 }
 
-aside#introduction .contact-me-btn:hover {
+aside#introduction .read-more-btn:hover {
   border-bottom-width: 4px;
 }
 
 section#about {
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 8rem;
   background: var(--dark-background-color);
   display: flex;
   justify-content: center;
@@ -429,7 +449,7 @@ nav.active .hamburger .hamburger-inner:after {
     grid-template-columns: 1fr 1fr;
   }
 
-  aside#introduction h3 {
+  aside#introduction h1 {
     font-size: 2rem;
   }
 
