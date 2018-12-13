@@ -161,9 +161,8 @@ aside#introduction {
   visibility: hidden;
 }
 
-aside#introduction h4,
 aside#introduction h1 {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   margin: 0;
   font-family: "Libre Baskerville", serif;
   font-weight: 700;
@@ -175,6 +174,7 @@ aside#introduction h1 {
 aside#introduction h4 {
   font-size: 1.1rem;
   letter-spacing: 0px;
+  font-family: "Libre Baskerville", serif;
   line-height: 1.6;
   margin-top: 2rem;
   opacity: 1;
