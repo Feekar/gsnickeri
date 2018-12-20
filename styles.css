@@ -90,8 +90,8 @@ section#furniture img {
 }
 
 section#furniture > div.furniture-img-wrap {
-  /* transition: 0.15s; */
-  box-shadow: 2px 2px 10px lightgrey;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 lightgrey;
   box-sizing: border-box;
   border: 1rem solid white;
   border-bottom: none;
@@ -115,7 +115,7 @@ section#furniture .furniture-details {
 }
 
 section#furniture .furniture-details span {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 0.8rem;
   margin: 0 0.3rem;
 }
@@ -139,11 +139,14 @@ section#furniture .furniture-details button:hover {
 }
 
 section#furniture .furniture-details button > img {
-  opacity: 0.8;
   margin-left: 0.3rem;
+  width: 1.3rem;
 }
 
 section#furniture .furniture-details button > span {
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--accent-color);
+  color: var(--accent-color);
   font-size: 0.9rem;
 }
 
@@ -195,7 +198,6 @@ aside#introduction .read-more-btn {
   border-bottom: 2px solid var(--accent-color);
   font-size: 1.1rem;
   position: relative;
-  transition: 0.15s;
 }
 
 aside#introduction .read-more-btn:hover {
@@ -205,10 +207,10 @@ aside#introduction .read-more-btn:hover {
 section#about {
   width: 100%;
   margin-top: 8rem;
-  background: var(--dark-background-color);
+  background: white;
   display: flex;
   justify-content: center;
-  padding: 1rem 2rem 3rem 2rem;
+  padding: 1rem 2rem 10rem 2rem;
   box-sizing: border-box;
   min-height: 20rem;
 }
