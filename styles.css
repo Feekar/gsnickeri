@@ -87,6 +87,11 @@ section#furniture img {
   max-width: 100%;
   display: block;
   cursor: pointer;
+  transition: 0.6s;
+}
+
+section#furniture img:hover {
+  transform: scale(1.08);
 }
 
 section#furniture > div.furniture-img-wrap {
@@ -97,12 +102,15 @@ section#furniture > div.furniture-img-wrap {
   border-bottom: none;
   border-top: none;
   visibility: hidden;
+  overflow: hidden;
 }
 
 section#furniture .name,
 section#furniture .furniture-details {
   background: white;
   padding: 1rem 0 1rem 0.3rem;
+  z-index: 3;
+  position: relative;
 }
 
 section#furniture .name {
