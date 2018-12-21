@@ -5,10 +5,11 @@ let currentImageShownNum;
 const imageBasePath = "content/images/";
 
 class FurnitureGroup {
-  constructor(id, name, price, description, images) {
+  constructor(id, name, price, priceType, description, images) {
     this.id = id;
     this.name = name;
     this.price = price;
+    this.priceType = priceType;
     this.description = description;
     this.images = images;
     this.hasBeenLoaded = false;
@@ -60,60 +61,76 @@ class FurnitureGroup {
 const furnitureData = [
   new FurnitureGroup(
     "group1",
-    "Bord & pallar",
-    5400,
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
+    "Bord & pallar för barn",
+    3200,
+    "kr",
+    "Ben av ek, skiva av valchromat. Pall 28 cm hög, 29 cm i diam. Bord 45 cm hög, 60 cm i diam.<br/> Pall 1000 kr/st. Bord 1500 kr/st. Hela gruppen 3200 kr",
     ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
   ),
   new FurnitureGroup(
     "group2",
     "Månhylla",
-    3800,
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    1400,
+    "kr",
+    "Furu, mörkbetsad. 40 cm hög.",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group3",
     "Charkbräda",
-    2000,
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",
+    500,
+    "kr/st",
+    "Ek eller valnöt. Total läng 78 cm. ”Uppläggningsyta” 20 cm x 60 cm.",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group4",
-    "Pallar",
-    4500,
-    "Lorem ipsum dolor sit",
+    "Barnpallar",
+    1500,
+    "kr/st",
+    "Ben av vitmålad furu. Tvåfärgad sits av valchromat. 28 cm hög, 29 cm i diam",
     ["1.jpg"]
   ) ,
   new FurnitureGroup(
     "group5",
-    "Sidbord m. betongskiva",
-    7000,
-    "Lorem ipsum dolor sit consectetur adipiscing",
+    "Sidebord med betongskiva",
+    3000,
+    "kr/st utan ljuskoppar",
+    "Benställning och nedre hylla av ek. Skiva av betong. Bredd 120 cm, djup 25 cm, höjd 75 cm.",
     ["1.jpg", "2.jpg"]
   ) ,
   new FurnitureGroup(
     "group6",
-    "Vägghylla i fyra delar",
-    4000,
-    "Lorem ipsum dolor sit consectetur adipiscing Lorem ipsum dolor sit consectetur adipiscing",
+    "Vägghylla",
+    800,
+    "kr/st",
+    "Priset kan variera beroende på storlek",
     ["1.jpg"]
   ) ,
   new FurnitureGroup(
     "group7",
-    "Sidobord svart",
-    4500,
-    "Lorem ipsum dolor sit consectetur adipiscin 30x30",
+    "Sidobord/nattygsbord",
+    1100,
+    "kr",
+    "Svartmålad plywood. Bredd 50 cm, djup 43 cm, höjd 55 cm.<br/>Även bra att ställa skrivaren på och förvara papper på hyllan undertill.",
     ["1.jpg", "2.jpg"]
   ),
   new FurnitureGroup(
     "group8",
-    "Utebänk",
-    3300,
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+    "Sittbänk",
+    3500,
+    "kr",
+    "Oljad furu. Sitsen är ribbad. Bredd 100 cm, djup 35 cm, höjd 45 cm",
     ["1.jpg", "2.jpg"]
-  )      
+  ),
+  new FurnitureGroup(
+    "group9",
+    "Förvaringsmöbel",
+    2000,
+    "kr",
+    "Ställning av ek, lådorna är av valchromat och är sinkade i hörnen. 40 cm hög. 30 cm djup. 66 cm bred. <br/>Kan köpas med 3 lådor för 2800kr",
+    ["1.jpg", "2.jpg"]
+  )       
 ];
 
 export default furnitureData;

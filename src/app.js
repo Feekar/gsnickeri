@@ -35,7 +35,7 @@ function initImages() {
     <div class="furniture-details">
       <div>
         ${furnitureGroup.price} 
-        <span>SEK</span> 
+        <span>${furnitureGroup.priceType}</span> 
       </div>
         <button class="open-furniture-group" data-furniture-group-id="${furnitureGroup.id}">
           <span>${furnitureGroup.images.length} bilder</span>
