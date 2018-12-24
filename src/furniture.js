@@ -129,7 +129,7 @@ const furnitureData = [
     2000,
     "kr",
     "Ställning av ek, lådorna är av valchromat och är sinkade i hörnen. 40 cm hög. 30 cm djup. 66 cm bred. <br/>Kan köpas med 3 lådor för 2800kr",
-    ["1.jpg", "2.jpg"]
+    ["1.jpg"]
   )       
 ];
 
