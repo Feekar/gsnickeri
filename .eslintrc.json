@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb-base",
+  "globals": {
+    "document": true,
+    "foo": true,
+    "window": true
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "no-use-before-define": [
+      2,
+      {
+        "functions": false
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTernary": true
+      }
+    ]
+  }
+}

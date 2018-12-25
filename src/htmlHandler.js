@@ -1,11 +1,11 @@
-import furnitureData from "./furniture.js";
-const imageContainerElement = document.getElementById("furniture");
+import furnitureData from './furniture';
+
+const imageContainerElement = document.getElementById('furniture');
 
 function generateImageMarkup() {
-  for (let furnitureGroup of furnitureData) {
-    let imgWrapElement = document.createElement("div");
-    imgWrapElement.classList.add("furniture-img-wrap");
-    // prettier-ignore
+  furnitureData.forEach((furnitureGroup) => {
+    const imgWrapElement = document.createElement('div');
+    imgWrapElement.classList.add('furniture-img-wrap');
     imgWrapElement.innerHTML = `
         <div class="name">${furnitureGroup.name}</div>
         <img src="content/images/${furnitureGroup.id}/${furnitureGroup.images[0]}" 
@@ -25,7 +25,7 @@ function generateImageMarkup() {
         </p>
         `;
     imageContainerElement.appendChild(imgWrapElement);
-  }
+  });
 }
 
 export default generateImageMarkup;

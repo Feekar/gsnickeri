@@ -1,19 +1,18 @@
-"use strict";
-import furnitureData from "./furniture.js";
-import ScrollReveal from "scrollreveal";
-import generateImageMarkup from "./htmlHandler";
+import ScrollReveal from 'scrollreveal';
+import furnitureData from './furniture';
+import generateImageMarkup from './htmlHandler';
 
-const hamburgerElement = document.querySelector(".hamburger");
-const navElement = document.querySelector("nav");
-const imageContainerElement = document.getElementById("furniture");
-const imageModalContainerElement = document.getElementById("image-modal");
-const closeModalButtonElement = document.querySelector("#image-modal .close");
-const imageModalElement = document.querySelector("#image-modal img");
-const bodyElement = document.querySelector("body");
-const progressContainerElement = document.getElementById("progress");
+const hamburgerElement = document.querySelector('.hamburger');
+const navElement = document.querySelector('nav');
+const imageContainerElement = document.getElementById('furniture');
+const imageModalContainerElement = document.getElementById('image-modal');
+const closeModalButtonElement = document.querySelector('#image-modal .close');
+const imageModalElement = document.querySelector('#image-modal img');
+const bodyElement = document.querySelector('body');
+const progressContainerElement = document.getElementById('progress');
 
 const imageNavigationButtons = document.getElementsByClassName(
-  "image-navigation"
+  'image-navigation',
 );
 
 let chosenFurnitureGroup;
@@ -22,7 +21,7 @@ let chosenFurnitureGroup;
   initImages();
   addEventListeners();
   addScrollRevealAnimation();
-})();
+}());
 
 function initImages() {
   generateImageMarkup();
@@ -30,99 +29,95 @@ function initImages() {
 }
 
 function addEventListeners() {
-  hamburgerElement.addEventListener("click", () =>
-    navElement.classList.toggle("active")
-  );
+  hamburgerElement.addEventListener('click', () => navElement.classList.toggle('active'));
 
-  imageContainerElement.addEventListener("click", event => {
-    if (event.target.tagName !== "IMG") {
+  imageContainerElement.addEventListener('click', (event) => {
+    if (event.target.tagName !== 'IMG') {
       return;
     }
-    const furnitureGroupId = event.target.dataset.furnitureGroupId;
+    const { furnitureGroupId } = event.target.dataset;
     openImage(furnitureGroupId);
   });
 
-  imageModalElement.addEventListener("click", () => {
-    chosenFurnitureGroup.navigateImages("next");
+  imageModalElement.addEventListener('click', () => {
+    chosenFurnitureGroup.navigateImages('next');
   });
 
-  closeModalButtonElement.addEventListener("click", function() {
-    imageModalContainerElement.classList.remove("open");
-    bodyElement.classList.remove("modal-open");
+  closeModalButtonElement.addEventListener('click', () => {
+    imageModalContainerElement.classList.remove('open');
+    bodyElement.classList.remove('modal-open');
   });
 
-  window.addEventListener("click", outsideImageClick);
+  window.addEventListener('click', outsideImageClick);
 
   addImageNavigationEventListeners();
 }
 
 function addOpenImageButtonsEventListeners() {
   const openImageButtonElements = document.querySelectorAll(
-    ".furniture-details button"
+    '.furniture-details button',
   );
 
-  for (const button of openImageButtonElements) {
-    button.addEventListener("click", function(event) {
+  openImageButtonElements.forEach((button) => {
+    button.addEventListener('click', () => {
       openImage(button.dataset.furnitureGroupId);
     });
-  }
+  });
 }
 
 function addImageNavigationEventListeners() {
-  for (const button of Array.from(imageNavigationButtons)) {
-    button.addEventListener("click", function(event) {
-      const direction = button.dataset.direction;
+  Array.from(imageNavigationButtons).forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const { direction } = button.dataset;
       chosenFurnitureGroup.navigateImages(direction);
       event.stopPropagation();
     });
-  }
+  });
 }
 
 function outsideImageClick(event) {
   if (
-    event.srcElement.tagName === "IMG" ||
-    event.srcElement.classList.contains("image-navigation")
+    event.srcElement.tagName === 'IMG'
+    || event.srcElement.classList.contains('image-navigation')
   ) {
     return;
   }
-  imageModalContainerElement.classList.remove("open");
-  bodyElement.classList.remove("modal-open");
+  imageModalContainerElement.classList.remove('open');
+  bodyElement.classList.remove('modal-open');
 }
 
 function openImage(furnitureGroupId) {
   chosenFurnitureGroup = getFurnitureGroupById(furnitureGroupId);
 
   chosenFurnitureGroup.open();
-  bodyElement.classList.add("modal-open");
+  bodyElement.classList.add('modal-open');
   addProgressDots(chosenFurnitureGroup.images.length);
 
-  event.stopPropagation();
+  window.event.stopPropagation();
 }
 
 function getFurnitureGroupById(furnitureGroupId) {
-  return furnitureData.find(furnitureGroup => {
-    return furnitureGroup.id === furnitureGroupId;
-  });
+  return furnitureData.find(furnitureGroup => furnitureGroup.id === furnitureGroupId);
 }
 
 function addProgressDots(numberOfImages) {
-  progressContainerElement.innerHTML = "";
+  progressContainerElement.innerHTML = '';
 
-  for (let i = 0; i < numberOfImages; i++) {
-    let progressDot = document.createElement("div");
-    progressDot.className = "progress-dot";
+  for (let i = 0; i < numberOfImages; i += 1) {
+    const progressDot = document.createElement('div');
+    progressDot.className = 'progress-dot';
     progressContainerElement.append(progressDot);
   }
 
-  progressContainerElement.children[0].classList.add("selected");
+  progressContainerElement.children[0].classList.add('selected');
 }
 
 function addScrollRevealAnimation() {
-  let sr = ScrollReveal();
-  sr.reveal(".furniture-img-wrap", {
+  const sr = ScrollReveal();
+  sr.reveal('.furniture-img-wrap', {
     duration: 2200,
-    distance: "2rem",
-    interval: 200
+    distance: '2rem',
+    interval: 200,
   });
-  sr.reveal("#introduction", { duration: 1500 });
+  sr.reveal('#introduction', { duration: 1500 });
 }
