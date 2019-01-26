@@ -53,6 +53,7 @@ nav {
   justify-content: space-between;
   letter-spacing: 1px;
   z-index: 4;
+  visibility: hidden;
 }
 
 nav #logo {

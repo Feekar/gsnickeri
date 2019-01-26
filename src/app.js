@@ -120,5 +120,5 @@ function addScrollRevealAnimation() {
     interval: 200,
   });
   sr.reveal('#introduction', { duration: 1500 });
-  sr.reveal('#links', { duration: 1000 });
+  sr.reveal('nav', { duration: 1000 });
 }
