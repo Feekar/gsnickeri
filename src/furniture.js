@@ -13,6 +13,7 @@ class FurnitureGroup {
     this.description = description;
     this.images = images;
     this.hasBeenLoaded = false;
+    this.descriptionOpened = false;
   }
 
   open() {

@@ -103,10 +103,9 @@ section#furniture img:hover {
 }
 
 section#furniture > div.furniture-img-wrap {
-  border-radius: 8px;
-  box-shadow: 2px 2px 0 lightgrey;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.10);
   box-sizing: border-box;
-  border: 1rem solid white;
   border-bottom: none;
   border-top: none;
   visibility: hidden;
@@ -116,13 +115,14 @@ section#furniture > div.furniture-img-wrap {
 section#furniture .name,
 section#furniture .furniture-details {
   background: white;
-  padding: 1rem 0 1rem 0.3rem;
   z-index: 3;
   position: relative;
 }
 
 section#furniture .name {
   font-weight: 500;
+  padding-top:0.6rem;
+  padding-bottom: 0.2rem;
 }
 
 section#furniture .furniture-details {
@@ -148,6 +148,7 @@ section#furniture .furniture-details button {
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: var(--accent-color);
 }
 
 section#furniture .furniture-details button:hover {
@@ -160,18 +161,24 @@ section#furniture .furniture-details button > img {
 }
 
 section#furniture .furniture-details button > span {
-  padding-bottom: 3px;
-  border-bottom: 2px solid var(--accent-color);
-  color: var(--accent-color);
   font-size: 0.9rem;
+}
+
+section#furniture section#furniture-bottom{
+  background: white;
+}
+
+section#furniture section#furniture-bottom > *{
+  padding-bottom:0.7rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
 }
 
 section#furniture .furniture-description {
   font-size: 0.75rem;
-  padding: 0 0 1rem 0.3rem;
-  background: white;
   margin: 0;
   line-height: 1.5;
+  padding-top:0.4rem;
 }
 
 aside#introduction {

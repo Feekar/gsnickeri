@@ -6,10 +6,12 @@ function generateImageMarkup() {
   furnitureData.forEach((furnitureGroup) => {
     const imgWrapElement = document.createElement('div');
     imgWrapElement.classList.add('furniture-img-wrap');
+    imgWrapElement.classList.add(furnitureGroup.id);
     imgWrapElement.innerHTML = `
-        <div class="name">${furnitureGroup.name}</div>
         <img src="content/images/${furnitureGroup.id}/${furnitureGroup.images[0]}" 
               data-furniture-group-id="${furnitureGroup.id}"/>
+        <section id="furniture-bottom">
+        <div class="name">${furnitureGroup.name}</div>
         <div class="furniture-details">
           <div>
             ${furnitureGroup.price} 
@@ -23,6 +25,8 @@ function generateImageMarkup() {
         <p class="furniture-description">
           ${furnitureGroup.description}
         </p>
+        </section>
+        
         `;
     imageContainerElement.appendChild(imgWrapElement);
   });
