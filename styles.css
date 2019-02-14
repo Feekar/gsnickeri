@@ -179,6 +179,7 @@ section#furniture .furniture-description {
   margin: 0;
   line-height: 1.5;
   padding-top:0.4rem;
+  opacity:0.9;
 }
 
 aside#introduction {
@@ -231,13 +232,26 @@ aside#introduction .read-more-btn:hover {
 
 section#about {
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 6rem;
   background: white;
   display: flex;
   justify-content: center;
   padding: 1rem 2rem 5rem 2rem;
   box-sizing: border-box;
   min-height: 20rem;
+  position:relative;
+}
+
+section#about:after {
+  content: '';
+  width: 100%;
+  transform: skewy(-8deg);
+  height: 20rem;
+  background: #ffffff;
+  position: absolute;
+  top: -9rem;
+  left: 0;
+  z-index: -1;
 }
 
 section#about > section {
