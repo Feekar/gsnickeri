@@ -130,6 +130,14 @@ const furnitureData = [
     'Ställning av ek, lådorna är av valchromat och är sinkade i hörnen. 40 cm hög. 30 cm djup. 66 cm bred. <br/>Kan köpas med 3 lådor för 2800kr',
     ['1.jpg'],
   ),
+  new FurnitureGroup(
+    'group10',
+    'Bricka',
+    900,
+    'kr',
+    'Oljad ek med epoxigjutning. 31x45 cm',
+    ['3.jpg', '1.jpg', '2.jpg'],
+  ),
 ];
 
 export default furnitureData;
