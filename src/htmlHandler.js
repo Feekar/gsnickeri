@@ -19,7 +19,6 @@ function generateImageMarkup() {
           </div>
             <button class="open-furniture-group" data-furniture-group-id="${furnitureGroup.id}">
               <span>${furnitureGroup.images.length} bilder</span>
-              <img src="content/icons/arrow-right-circle.svg"/>
             </button> 
         </div>
         <p class="furniture-description">
