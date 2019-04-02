@@ -138,6 +138,22 @@ const furnitureData = [
     'Oljad ek med epoxigjutning. 31x45 cm',
     ['3.jpg', '1.jpg', '2.jpg'],
   ),
+  new FurnitureGroup(
+    'group11',
+    'Matbord',
+    6000,
+    'kr',
+    'Svart genomfärgad mdf med epoxigjutning. 105 cm i diam. Epoxi finns i fler färger.',
+    ['1.jpg', '2.jpg'],
+  ),
+  new FurnitureGroup(
+    'group12',
+    'Soffbord',
+    'x',
+    'kr',
+    'Soffbord. Skiva i vitoljad ek med epoxigjutning. Underrede i målad furu. Kontakta mig för eget förslag på storlek och utförande.',
+    ['1.jpg', '2.jpg', '3.png'],
+  ),
 ];
 
 export default furnitureData;
