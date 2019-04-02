@@ -27,9 +27,13 @@ body {
 h1,
 h3,
 h2,
-h4 {
+h4{
   color: var(--black-color);
   font-weight: normal;
+}
+
+h5{
+  font-size:1rem;
 }
 
 p {
@@ -274,6 +278,10 @@ section#about h4 {
   font-weight: 700;
   font-size: 1.3rem;
   position: relative;
+}
+
+section#about h5 {
+  margin-bottom:0;
 }
 
 section#about img {
