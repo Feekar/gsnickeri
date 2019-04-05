@@ -10,6 +10,7 @@ html {
   color: var(--black-color);
   background: #e9e9e9;
   line-height: 1.3;
+  font-size: 15px;
 }
 
 button {
@@ -186,7 +187,7 @@ section#furniture section#furniture-bottom > *{
 }
 
 section#furniture .furniture-description {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin: 0;
   line-height: 1.5;
   padding-top:0.4rem;
@@ -235,6 +236,7 @@ aside#introduction .read-more-btn {
   color: white;
   border-radius: 5px;
   transition:0.15s;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
 
 aside#introduction .read-more-btn:hover {
@@ -243,26 +245,15 @@ aside#introduction .read-more-btn:hover {
 
 section#about {
   width: 100%;
-  margin-top: 6rem;
   background: white;
   display: flex;
   justify-content: center;
-  padding: 1rem 2rem 5rem 2rem;
+  padding: 3rem 2rem 5rem 2rem;
   box-sizing: border-box;
   min-height: 20rem;
-  position:relative;
-}
-
-section#about:after {
-  content: '';
-  width: 100%;
-  transform: skewy(-8deg);
-  height: 20rem;
-  background: #ffffff;
-  position: absolute;
-  top: -9rem;
-  left: 0;
-  z-index: -1;
+  border-top: 2px solid #f3f3f3;
+  position: relative;
+  margin-top: 12rem;
 }
 
 section#about > section {
@@ -274,6 +265,7 @@ section#about > section:first-child {
   padding-right: 5rem;
 }
 
+section#inspiration h4,
 section#about h4 {
   font-weight: 700;
   font-size: 1.3rem;
@@ -310,6 +302,67 @@ section#contact > div {
 
 section#contact > div:first-of-type {
   margin-bottom: 1.6rem;
+}
+
+section#inspiration{
+  margin-top: 8rem;
+  box-sizing: border-box;
+  color: white;
+  border-radius: 3px;
+  position: relative;
+}
+
+section#inspiration:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 180%;
+  top: 0;
+  transform: skewY(-12deg);
+  background: white;
+}
+
+section#inspiration #inspiration-container{
+  max-width: 88rem;
+  padding: 1.9rem;
+  padding-bottom: 6rem;
+  padding-top: 4rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  top: 11rem;
+}
+
+section#inspiration h4 {
+  background: white;
+  margin: 0;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  color: #333;
+  position: absolute;
+  top: -6rem;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.10);
+  transform: rotate(-12deg);
+}
+
+section#inspiration .inspiration-img-wrap{
+  height: 100%;
+}
+
+section#inspiration img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.10);
+}
+
+section#inspiration #inspiration-images{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-auto-rows: 15rem;
+  grid-gap: 2rem;
 }
 
 .hamburger {
@@ -497,15 +550,17 @@ nav.active .hamburger .hamburger-inner:after {
   section#furniture {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  section#about {
-    margin-top: 5rem;
-  }
+
   aside#introduction {
     grid-column: 1 / 2;
   }
+
+  section#inspiration h4{
+    top:-9rem;
+  }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   section#furniture {
     grid-template-columns: 1fr 1fr;
   }
@@ -555,6 +610,10 @@ nav.active .hamburger .hamburger-inner:after {
 
   body.modal-open {
     overflow: hidden;
+  }
+
+  section#inspiration h4{
+    top:-12rem;
   }
 }
 

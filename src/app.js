@@ -1,6 +1,6 @@
 import ScrollReveal from 'scrollreveal';
 import furnitureData from './furniture';
-import generateImageMarkup from './htmlHandler';
+import * as htmlHandler from './htmlHandler';
 
 const hamburgerElement = document.querySelector('.hamburger');
 const navElement = document.querySelector('nav');
@@ -24,7 +24,8 @@ let chosenFurnitureGroup;
 }());
 
 function initImages() {
-  generateImageMarkup();
+  htmlHandler.generateImageMarkup();
+  htmlHandler.generateInspirationImageMarkup();
   addOpenImageButtonsEventListeners();
 }
 
@@ -115,10 +116,11 @@ function addProgressDots(numberOfImages) {
 function addScrollRevealAnimation() {
   const sr = ScrollReveal();
   sr.reveal('.furniture-img-wrap', {
-    duration: 2200,
+    duration: 2000,
     distance: '2rem',
     interval: 200,
   });
   sr.reveal('#introduction', { duration: 1500 });
   sr.reveal('nav', { duration: 1000 });
+  sr.reveal('.inspiration-img-wrap', { duration: 1000, interval: 100, distance: '2rem' });
 }
