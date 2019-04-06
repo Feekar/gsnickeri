@@ -650,4 +650,8 @@ nav.active .hamburger .hamburger-inner:after {
     width: 3rem;
     height: 3rem;
   }
+
+  section#furniture img{
+    height:22rem;
+  }
 }
