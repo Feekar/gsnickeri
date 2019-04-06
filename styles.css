@@ -95,6 +95,7 @@ section#furniture {
   box-sizing: border-box;
   align-items: start;
   min-height: 100vh;
+  position:relative;
 }
 
 section#furniture img {
@@ -102,6 +103,9 @@ section#furniture img {
   display: block;
   cursor: pointer;
   transition: 0.6s;
+  object-fit: cover;
+  height: 15rem;
+  width: 100%;
 }
 
 section#furniture img:hover {
@@ -116,6 +120,8 @@ section#furniture > div.furniture-img-wrap {
   border-top: none;
   visibility: hidden;
   overflow: hidden;
+  height: 100%;
+  background:white;
 }
 
 section#furniture .name,
